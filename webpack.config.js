@@ -4,7 +4,7 @@ module.exports = {
   devServer: {
     contentBase: "./public",
     watchContentBase: true,
-    port: 9000,
+    port: 3100,
     open: true,
   },
   entry: './src/client/client.js',
