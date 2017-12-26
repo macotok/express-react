@@ -1,11 +1,28 @@
+const path = require("path");
+
 module.exports = {
-  entry: './src/client.js',
+  devServer: {
+    contentBase: "./public",
+    watchContentBase: true,
+    port: 9000,
+    open: true,
+  },
+  entry: './src/client/client.js',
   output: {
-    path: __dirname + '/public',
+    path: path.resolve("./public"),
     filename: 'app.js'
   },
+  resolve: {},
   module: {
-    rules: [{ test: /\.js$/, use: 'babel-loader' }]
+    rules: [
+      {
+        test: /\.js$/,
+        use: [
+          {
+            loader: "babel-loader",
+          },
+        ],
+      },
+    ],
   },
-  plugins: []
 };
