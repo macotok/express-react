@@ -1,28 +1,30 @@
-const path = require("path");
+const path = require('path');
 
 module.exports = {
   devServer: {
-    contentBase: "./dist",
+    contentBase: './dist',
     watchContentBase: true,
     port: 3100,
     open: true,
   },
-  entry: './lib/client/client.js',
+  entry: './client/app.js',
   output: {
-    path: path.resolve("./dist"),
+    path: path.resolve('./dist'),
     filename: 'app.js'
   },
-  resolve: {},
   module: {
-    rules: [
+    loaders: [
       {
-        test: /\.js$/,
-        use: [
-          {
-            loader: "babel-loader",
-          },
-        ],
-      },
-    ],
+        test: /\.js[x]?$/,
+        exclude: /node_modules/,
+        loader: "babel-loader",
+        query:{
+          presets: ['react', 'es2015']
+        }
+      }
+    ]
+  },
+  resolve: {
+    extensions:['.js', '.jsx']
   },
 };

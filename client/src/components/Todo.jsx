@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Counter from './Counter';
 import TodoList from './TodoList';
 
-export default class App extends Component {
+export default class Todo extends Component {
   constructor() {
     super();
   }

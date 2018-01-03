@@ -63,22 +63,6 @@ module.exports = {
 }
 ```
 
-### index.html
-
-``` html:public/index.html
-<!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <meta charset="UTF-8">
-    <title>App</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script src="app.js"></script>
-  </body>
-</html>
-```
-
 ## サーバーサイド環境開発
 
 ### packageをinstall
