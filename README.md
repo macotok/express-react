@@ -174,9 +174,7 @@ npm start
 http://localhost:3000/
 ```
 
-
-
-##　参考サイト
+## 参考サイト
 
 - [サーバーサイドReactをwebpackを使って最小構成で試す (ES6 ＆ TypeScript)](http://blog.namiking.net/post/2016/02/react-server-using-webpack/)
 - [Web技術基礎 - Webpack](http://basic-webtech.axlight.com/webpack/html/)

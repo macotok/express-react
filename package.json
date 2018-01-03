@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --watch",
-    "build": "webpack"
+    "build": "babel src -d lib"
   },
   "keywords": [],
   "author": "",

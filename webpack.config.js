@@ -2,14 +2,14 @@ const path = require("path");
 
 module.exports = {
   devServer: {
-    contentBase: "./public",
+    contentBase: "./dist",
     watchContentBase: true,
     port: 3100,
     open: true,
   },
-  entry: './src/client/client.js',
+  entry: './lib/client/client.js',
   output: {
-    path: path.resolve("./public"),
+    path: path.resolve("./dist"),
     filename: 'app.js'
   },
   resolve: {},
