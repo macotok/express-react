@@ -12,6 +12,6 @@ export default class Todo extends Component {
         <TodoList />
         <Counter />
       </div>
-    )
+    );
   }
 }

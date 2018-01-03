@@ -9,7 +9,6 @@ export default class TodoList extends Component {
       <ul>
         <li>ほげ</li>
         <li>ほげ</li>
-        <li>ほげ</li>
       </ul>
     );
   }

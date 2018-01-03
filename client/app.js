@@ -5,4 +5,4 @@ import Todo from './src/components/Todo';
 ReactDOM.render(
   <Todo />,
   document.getElementById('app')
-)
+);

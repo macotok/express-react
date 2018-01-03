@@ -10,21 +10,21 @@ module.exports = {
   entry: './client/app.js',
   output: {
     path: path.resolve('./dist'),
-    filename: 'app.js'
+    filename: 'app.js',
   },
   module: {
     loaders: [
       {
         test: /\.js[x]?$/,
         exclude: /node_modules/,
-        loader: "babel-loader",
-        query:{
-          presets: ['react', 'es2015']
-        }
-      }
-    ]
+        loader: 'babel-loader',
+        query: {
+          presets: ['react', 'es2015'],
+        },
+      },
+    ],
   },
   resolve: {
-    extensions:['.js', '.jsx']
+    extensions: ['.js', '.jsx'],
   },
 };

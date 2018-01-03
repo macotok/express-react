@@ -80,3 +80,4 @@ module.exports = {
 - [Babelを使おう](https://qiita.com/foursue/items/d80667eff2faed8613f2)
 - [React 入門チュートリアル①](https://qiita.com/stivan622/items/ef4a0b9d5c5190b0e150)
 - [React 入門チュートリアル②](https://qiita.com/stivan622/items/96777804fd0d9ba1f6d1)
+- [React + Reduxアプリのディレクトリ構成について](https://qiita.com/oi5u/items/bf8a5ae2d0f9b128e6f5)

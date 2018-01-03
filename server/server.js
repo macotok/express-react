@@ -1,9 +1,9 @@
 import express from 'express';
 const app = express();
-const path = require("path")
+const path = require('path');
 
 app.get('/', (req, res) => {
-  res.sendFile(path.resolve("./public/index.html"))
+  res.sendFile(path.resolve('./dist/index.html'));
 });
 
 app.listen(3000, () => {
