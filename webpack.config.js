@@ -7,7 +7,7 @@ module.exports = {
     port: 3100,
     open: true,
   },
-  entry: './client/app.js',
+  entry: './client/src/js/app.js',
   output: {
     path: path.resolve('./dist'),
     filename: 'app.js',

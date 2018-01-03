@@ -18380,17 +18380,12 @@ var Counter = function (_Component) {
         _react2.default.createElement(
           'p',
           null,
-          'test'
-        ),
-        _react2.default.createElement(
-          'p',
-          null,
           'Count: ',
           this.state.count
         ),
         _react2.default.createElement(
           'button',
-          { onClick: function onClick(e) {
+          { onClick: function onClick(event) {
               return _this2.increment();
             } },
           'increment'
@@ -18444,11 +18439,6 @@ var TodoList = function (_Component) {
       return _react2.default.createElement(
         'ul',
         null,
-        _react2.default.createElement(
-          'li',
-          null,
-          '\u307B\u3052'
-        ),
         _react2.default.createElement(
           'li',
           null,
