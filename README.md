@@ -11,22 +11,6 @@ npm -v
 
 ## フロントエンド環境開発
 
-### packageをinstall
-
-- React
-- webpack
-- babel
-
-```
-npm init -y
-npm install --save react react-dom
-npm install --save-dev webpack
-npm install --save webpack-dev-server
-npm install --save-dev babel-loader babel-preset-es2015 babel-preset-react babel-core
-```
-
-※--save-devを付けると package.json のdevDependenciesに記載されます。
-
 ### pakage.json
 
 ``` javascript:package.json
@@ -95,84 +79,12 @@ module.exports = {
 </html>
 ```
 
-### javascript
-
-``` javascript:src/client.js
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Counter from './components/Counter';
-
-ReactDOM.render(
-  <Counter />,
-  document.getElementById('app')
-)
-```
-
-### webpack
-
-``` javascript:build
-npm run build
-```
-
 ## サーバーサイド環境開発
 
 ### packageをinstall
 
 - express
 - babel-cli
-
-```
-npm install --save express
-npm install --save-dev babel-cli  // node.jsの実行をbabelに通す
-```
-
-### javascript
-
-``` javascript:server.js
-import express from 'express';
-import React from 'react';
-import ReactDOMServer from 'react-dom/server';
-import Counter from './components/Counter';
-
-const app = express();
-app.use(express.static('public'));
-
-app.get('/', (req, res) => {
-  res.send(
-    ReactDOMServer.renderToString(
-      <div>
-        <div id="app">
-          <Counter />
-        </div>
-        <script src="client.js" />
-      </div>
-    )
-  )
-});
-
-app.listen(3000, () => {
-  console.log('app listening on port 3000');
-});
-
-```
-
-``` javascript:package.jsonにサーバー起動の記述を追加
-"scripts": {
-   "start": "babel-node src/server.js"
-}
-```
-
-### サーバー起動
-
-```
-npm start
-```
-
-### webで確認
-
-```
-http://localhost:3000/
-```
 
 ## 参考サイト
 
@@ -181,3 +93,6 @@ http://localhost:3000/
 - [Web技術基礎 - Express](http://basic-webtech.axlight.com/express/html/)
 - [Nodeでサーバを立ててReactを使ったページでハロワをやってみる](https://dev.classmethod.jp/etc/node-react-hello-world/)
 - [https://github.com/morizotter/js-study/tree/master/9.react-tutorial-2](https://github.com/morizotter/js-study/tree/master/9.react-tutorial-2)
+- [Babelを使おう](https://qiita.com/foursue/items/d80667eff2faed8613f2)
+- [React 入門チュートリアル①](https://qiita.com/stivan622/items/ef4a0b9d5c5190b0e150)
+- [React 入門チュートリアル②](https://qiita.com/stivan622/items/96777804fd0d9ba1f6d1)
