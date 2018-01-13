@@ -1,20 +1,26 @@
+const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
+const extractSass = new ExtractTextPlugin({
+  filename: './style.css',
+  disable: process.env.NODE_ENV === 'development',
+});
+
 module.exports = {
+  entry: [
+    './client/src/js/app.js',
+    './client/src/sass/style.scss',
+  ],
+  output: {
+    path: path.resolve('./dist'),
+    filename: 'app.js',
+  },
   devServer: {
     contentBase: './dist',
     watchContentBase: true,
     port: 3100,
     open: true,
-  },
-  entry: {
-    js: './client/src/js/app.js',
-    style: './client/src/sass/style.scss',
-  },
-  output: {
-    path: path.resolve('./dist'),
-    filename: '[name].js',
   },
   module: {
     rules: [
@@ -31,9 +37,13 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: ExtractTextPlugin.extract({
+        use: extractSass.extract({
+          use: [{
+            loader: 'css-loader',
+          }, {
+            loader: 'sass-loader?outputStyle=compressed',
+          }],
           fallback: 'style-loader',
-          use: ['css-loader', 'sass-loader?outputStyle=expanded'],
         }),
       },
     ],
@@ -42,8 +52,7 @@ module.exports = {
     extensions: ['.js', '.jsx'],
   },
   plugins: [
-    new ExtractTextPlugin({
-      filename: './[name].css',
-    }),
+    extractSass,
+    new webpack.optimize.UglifyJsPlugin()
   ],
 };
