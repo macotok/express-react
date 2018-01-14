@@ -53,6 +53,6 @@ module.exports = {
   },
   plugins: [
     extractSass,
-    new webpack.optimize.UglifyJsPlugin()
+    new webpack.optimize.UglifyJsPlugin(),
   ],
 };

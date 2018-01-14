@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
-import Counter from './Counter';
-import TodoList from './TodoList';
+import React from 'react';
 
-export default class Todo extends Component {
-  constructor() {
-    super();
-  }
+class Todo extends React.Component {
   render() {
+    const className = 'undone';
+    const link = this.props.done ? '元に戻す' : '完了';
     return (
-      <div>
-        <TodoList />
-        <Counter />
-      </div>
-    );
+      <li className={className}>
+        <span>{this.props.id}</span>
+        <span>:{this.props.title}</span>
+        <a href="#">{link}</a>
+        <p>{this.props.desc}</p>
+      </li>
+    )
   }
 }
+export default Todo;
