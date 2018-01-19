@@ -18,12 +18,6 @@ class App extends React.Component {
           desc: 'Reduxも始めました',
           done: false,
         },
-        {
-          id: 3,
-          title: 'Hello, Express!',
-          desc: 'Expressも始めました',
-          done: false,
-        },
       ],
     };
   }

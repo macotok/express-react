@@ -10,7 +10,7 @@ module.exports = [
     },
     output: {
       path: path.resolve(__dirname, 'dist'),
-      filename: '[name].js',
+      filename: 'js/[name].js',
     },
     devServer: {
       contentBase: './dist',
@@ -25,17 +25,18 @@ module.exports = [
           exclude: /node_modules/,
           loader: 'babel-loader',
           query: {
-            presets: ['react', 'es2015'],
+            presets: ['react', 'env'],
           },
         },
       ],
     },
+    devtool: 'eval-source-map',
     resolve: {
       extensions: ['.js', '.jsx'],
     },
-    // plugins: [
-    //   new webpack.optimize.UglifyJsPlugin(),
-    // ],
+    plugins: [
+      new webpack.optimize.UglifyJsPlugin(),
+    ],
   },
   {
     entry: {
@@ -52,8 +53,14 @@ module.exports = [
           use: extractSass.extract({
             use: [{
               loader: 'css-loader',
+              options: {
+                sourceMap: true,
+              },
             }, {
-              loader: 'sass-loader',
+              loader: 'sass-loader?outputStyle=compressed',
+              options: {
+                sourceMap: true,
+              },
             }],
             fallback: 'style-loader',
           }),
