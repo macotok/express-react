@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const extractSass = new ExtractTextPlugin('css/[name].css');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = [
   {
@@ -36,6 +37,9 @@ module.exports = [
     },
     plugins: [
       new webpack.optimize.UglifyJsPlugin(),
+      new HtmlWebpackPlugin({
+        template: __dirname + '/client/src/index.html',
+      }),
     ],
   },
   {
@@ -58,9 +62,6 @@ module.exports = [
               },
             }, {
               loader: 'sass-loader?outputStyle=compressed',
-              options: {
-                sourceMap: true,
-              },
             }],
             fallback: 'style-loader',
           }),
