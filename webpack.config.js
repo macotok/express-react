@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const extractSass = new ExtractTextPlugin('css/[name].css');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = [
   {
@@ -10,7 +11,7 @@ module.exports = [
     },
     output: {
       path: path.resolve(__dirname, 'dist'),
-      filename: '[name].js',
+      filename: 'js/[name].js',
     },
     devServer: {
       contentBase: './dist',
@@ -25,17 +26,21 @@ module.exports = [
           exclude: /node_modules/,
           loader: 'babel-loader',
           query: {
-            presets: ['react', 'es2015'],
+            presets: ['react', 'env'],
           },
         },
       ],
     },
+    devtool: 'eval-source-map',
     resolve: {
       extensions: ['.js', '.jsx'],
     },
-    // plugins: [
-    //   new webpack.optimize.UglifyJsPlugin(),
-    // ],
+    plugins: [
+      new webpack.optimize.UglifyJsPlugin(),
+      new HtmlWebpackPlugin({
+        template: __dirname + '/client/src/index.html',
+      }),
+    ],
   },
   {
     entry: {
@@ -52,8 +57,11 @@ module.exports = [
           use: extractSass.extract({
             use: [{
               loader: 'css-loader',
+              options: {
+                sourceMap: true,
+              },
             }, {
-              loader: 'sass-loader',
+              loader: 'sass-loader?outputStyle=compressed',
             }],
             fallback: 'style-loader',
           }),
